@@ -1,0 +1,8 @@
+Keras==2.4.3
+Keras_Preprocessing==1.1.2
+matplotlib==3.4.1
+pandas==1.2.4
+nltk==3.6.2
+numpy==1.19.5
+tensorflow==2.4.1
+scikit_learn==0.24.2
