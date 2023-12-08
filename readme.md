@@ -101,26 +101,3 @@ The `output` folder contains two folders. They are:
 The `lib` folder is a reference folder. It contains the original IPython notebook.
 
 ---
-
-## Key Concepts Explored
-
-1. Understanding the problem statement
-2. Understanding the Sequence problem and their types
-3. Understanding Sequence neural network approach like: RNN, GRU, and LSTM.
-4. Importing the dataset and importing libraries
-5. Performing basic text cleaning
-6. Perform text preprocessing: Stop word removal, Stemming, etc.
-7. Text tokenization using Keras tokenizer
-8. Sequence data preparation with tokenizer and padding
-9. Train and test split for model validation
-10. Explaining Text vectorization and Word embedding
-11. Build Word embedding layer with Glove
-12. Important parameters before training the model.
-13. Explaining Sequence model steps
-14. Implementing Simple RNN
-15. Implementing LSTM and GRU
-16. Making Test predictions using the trained model.
-17. Comparing Model training and validation loss and performance.
-18. Comparing LSTM and GRU performance and computation Time.
-
----
