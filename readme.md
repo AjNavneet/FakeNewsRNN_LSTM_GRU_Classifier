@@ -1,32 +1,26 @@
-# Fake News Classification Using RNN, LSTM and GRU
+# Detecting Fake News with RNN, LSTM, and GRU
 
 ## Business Overview
 
-- What is Fake News?
-  - Fake news is the deliberate presentation of (typically) false or misleading claims as news, where the claims are misleading by design.
+- Understanding Fake News:
+  - Fake news involves the intentional dissemination of false or misleading information presented as news, designed to deceive the audience.
 
-- How News and digital media evolved?
-  - The news media evolved from newspapers, tabloids, and magazines to a digital form such as online news platforms, blogs, social media feeds, and many news mobile apps. News outlets benefitted from the widespread use of social media/mobile platforms by providing updated news in near real time to its subscribers. It became easier for consumers to acquire the latest news at their fingertips. So, These digital media platforms become very powerful due to their easy accessibility to the world and ability to allow users to discuss and share ideas and debate over issues such as democracy, education, health, research, and history. However, apart from advantage, false/fake news articles on digital platforms are getting very common and mainly used with a negative intent for their own benefit such as political and financial benefit, creating biased opinions, manipulating mindsets, and spreading absurdity.
+- Evolution of News and Digital Media:
+  - News media has transitioned from traditional forms like newspapers to digital platforms such as online news portals, blogs, social media, and news mobile apps. While these platforms offer quick access to information, they also face the challenge of spreading fake news with negative motives, impacting various domains like politics, sports, health, entertainment, and science.
 
-- How big is this Problem?
-  - With the rapid adoption of Internet, social media, and digital platforms (such as Facebook, Twitter, news portals, or any social media), anybody can spread untrue and biased information. It is virtually impossible to prevent Fake News from being created. There has been a rapid increase in the spread of fake news in the last decade, it's not limited to any one domain like politics but covering various other domains such as sports, health, history, entertainment and also science and research. If we take the 2016 US presidential election, there were lots of biased and fake news published to influence. Another example could be of COVID-19, we generally come across many misleading/fake news every day which can have serious consequences and may lead to create panic among people and spread the pandemic more rapidly.
+- Magnitude of the Problem:
+  - The rise of the Internet and social media has facilitated the widespread distribution of untrue and biased information. Fake news is not confined to a specific domain and has witnessed a significant surge in the past decade. Instances like the 2016 US presidential election and the ongoing COVID-19 pandemic underscore the severity of the issue, with misinformation causing panic and influencing public opinion.
 
-- What is Solution?
-  - Therefore, It is important and absolutely necessary to identify and differentiate Fake News from real news. One of the ways is to determine by expert and fact check of every news, but this is time-consuming and requires skills which cannot be shared. Second, we can automate the detection of Fake News by using the techniques of Machine learning and Artificial Intelligence. The Online news content has diverse unstructured format data(such as documents, videos, and audios), here we will concentrate on text format news. With the advancement of and Natural language processing It is possible now that we can identify the deceptive and fake nature of articles or sentences. There is widespread study and experimentation happening in this area to identify the Fake news for all medium(Video, audio and Text) news.
+- Proposed Solution:
+  - Given the pervasive nature of fake news, it is imperative to differentiate it from authentic news. Manual fact-checking is time-consuming and skill-intensive. Hence, leveraging machine learning and artificial intelligence for automated detection becomes crucial. Our focus is on text-based news content, employing advanced natural language processing techniques to identify deceptive articles.
 
 ---
 
 ## Data Description
 
-- In our study, we used the Fake news dataset from Kaggle to classify unreliable news articles as Fake news using Deep learning Technique Sequence to Sequence programming.
-- A full training dataset with the following attributes:
-  - id: unique id for a news article
-  - title: the title of a news article
-  - author: author of the news article
-  - text: the text of the article; could be incomplete
-  - label: a label that marks the article as potentially unreliable
-    - 1: unreliable
-    - 0: reliable
+- Dataset Overview:
+  - Utilized the Fake News dataset from Kaggle to employ deep learning techniques, specifically Sequence to Sequence programming, for classifying unreliable news articles.
+  - Attributes in the training dataset include id, title, author, text, and label (1 for unreliable, 0 for reliable).
 
 ---
 
@@ -39,65 +33,54 @@
 
 ## Approach
 
-1. Data cleaning / Pre-processing (outlier/missing values/categorical):
-   - Removing Missing record
-   - Merge all text together
-   - Removing special characters from text
+1. **Data Cleaning / Pre-processing:**
+   - Addressing missing values, outliers, and categorical data.
+   - Combining and cleaning text, removing special characters.
 
-2. Sequence Data Preparation:
-   - Tokenizing text after preprocessing
-   - Build Vocabulary to filter text sets: Choose the length of the maximum vocabulary size
-   - Sequence data preparation:
-     - Use vocab
-     - Maximum sequence length
-     - Padding
+2. **Sequence Data Preparation:**
+   - Tokenization post pre-processing.
+   - Building a vocabulary for text filtering, determining maximum vocabulary size.
+   - Preparing sequence data with considerations for vocabulary, maximum sequence length, and padding.
 
-3. Word Embedding:
-   - This is a step where we convert text data to meaningful numerical vectors. We use a pre-trained glove to convert into a numeric vector.
+3. **Word Embedding:**
+   - Utilizing pre-trained GloVe embeddings to convert text data into meaningful numerical vectors.
 
-4. Build Sequence Model:
-   - Building Sequence layer with embedding, Dense, Dropout with below sequence layer:
+4. **Building Sequence Models:**
+   - Constructing sequence layers with embedding, Dense, and Dropout, featuring:
      - Simple RNN
      - LSTM
      - GRU
 
-5. Validate Model Training:
-   - Which model will be finalized on the basis of the following:
-     - Confusion matrix
-     - Accuracy
+5. **Model Training Validation:**
+   - Finalizing models based on evaluation metrics like confusion matrix and accuracy.
 
-6. Model comparison:
-   - Model comparison in terms of performance, stability, and computation time
+6. **Model Comparison:**
+   - Comparing models in terms of performance, stability, and computation time.
 
 ---
 
 ## Modular Code Overview
 
-### 1. input
+### 1. `input`
 
-The `input` folder contains all the data that we have for analysis. In our case, it will contain three CSV files which are:
-- `submit.csv`
-- `test.csv`
-- `train.csv`
+   - Contains data files for analysis (e.g., `submit.csv`, `test.csv`, `train.csv`).
+   - Includes a `glove` folder housing the GloVe embedding file.
 
-It also has another folder called `glove` which contains the glove embedding file.
+### 2. `src`
 
-### 2. src
+   - Core project folder housing modularized code.
+   - Includes:
+      - `ML_pipeline`: Functions organized into Python files.
+      - `engine.py`: Main execution file calling functions from `ML_pipeline`.
 
-The `src` folder is the heart of the project. This folder contains all the modularized code for all the above steps in a modularized manner. It further contains the following:
-- `ML_pipeline`
-- `engine.py`
+### 3. `output`
 
-The `ML_pipeline` is a folder that contains all the functions put into different Python files which are appropriately named. These Python functions are then called inside the `engine.py` file.
+   - Contains two subfolders:
+      - `models`: Stores trained models for future use.
+      - `reports`: Includes a CSV file documenting model details and accuracy.
 
-### 3. output
+### 4. `lib`
 
-The `output` folder contains two folders. They are:
-- `models`: The models folder contains all the models that we trained for this data saved as reusable files. These models can be easily loaded and used for future use, and the user need not have to train all the models from the beginning.
-- `reports`: The report folder contains a CSV file which stores all the models trained along with their accuracy and other details.
-
-### 4. lib
-
-The `lib` folder is a reference folder. It contains the original IPython notebook.
+   - Reference folder containing the original IPython notebook.
 
 ---
